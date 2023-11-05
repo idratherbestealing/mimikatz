@@ -1,5 +1,13 @@
-### BUILD
+### Change Log
 
+
+- New Powercatz.dll (32bit & 64bit)
+- Compressed and encrypted with random iterations
+- base64 then reversed
+- Obfuscated functions, variables and parameters
+
+
+### BUILD
 
 ```Powershell
 cd $env:UserProfile\Desktop\Powerkatz
