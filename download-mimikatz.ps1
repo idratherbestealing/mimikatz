@@ -25,16 +25,21 @@ function Unzip {
     [System.IO.Compression.ZipFile]::ExtractToDirectory($zipfile, $outpath)
 }
 
-$mimikatz =  -join ((97..122) | Get-Random -Count 10 | ForEach-Object {[char]$_})
+$mimikatz =  -join ((97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})
 Get-ChildItem -recurse $mimipath | Where-Object { $_.name -match "mimikatz" } | Rename-Item -NewName { $_.name -replace "mimikatz", "$mimikatz" }
-$mimilib =  -join ((97..122) | Get-Random -Count 10 | ForEach-Object {[char]$_})
-Get-ChildItem -recurse $mimipath | Where-Object { $_.name -match "mimilib" } | Rename-Item -NewName { $_.name -replace "mimilib", "dinolib" }
-$mimidrv =  -join ((97..122) | Get-Random -Count 10 | ForEach-Object {[char]$_})
-Get-ChildItem -recurse $mimipath | Where-Object { $_.name -match "mimidrv" } | Rename-Item -NewName { $_.name -replace "mimidrv", "dinodrv" }
-$mimilove =  -join ((97..122) | Get-Random -Count 10 | ForEach-Object {[char]$_})
-Get-ChildItem -recurse $mimipath | Where-Object { $_.name -match "mimilove" } | Rename-Item -NewName { $_.name -replace "mimilove", "dinolove" }
-$mimispool =  -join ((97..122) | Get-Random -Count 10 | ForEach-Object {[char]$_})
-Get-ChildItem -recurse $mimipath | Where-Object { $_.name -match "mimispool" } | Rename-Item -NewName { $_.name -replace "mimispool", "dinospool" }
+$mimilib =  -join ((97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})
+Get-ChildItem -recurse $mimipath | Where-Object { $_.name -match "mimilib" } | Rename-Item -NewName { $_.name -replace "mimilib", "mimilib" }
+$mimidrv =  -join ((97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})
+Get-ChildItem -recurse $mimipath | Where-Object { $_.name -match "mimidrv" } | Rename-Item -NewName { $_.name -replace "mimidrv", "mimidrv" }
+$mimilove =  -join ((97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})
+Get-ChildItem -recurse $mimipath | Where-Object { $_.name -match "mimilove" } | Rename-Item -NewName { $_.name -replace "mimilove", "mimilove" }
+$mimispool =  -join ((97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})
+Get-ChildItem -recurse $mimipath | Where-Object { $_.name -match "mimispool" } | Rename-Item -NewName { $_.name -replace "mimispool", "mimispool" }
+$kuhl =  -join ((97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})
+Get-ChildItem -recurse $mimipath | Where-Object { $_.name -match "mimikatz" } | Rename-Item -NewName { $_.name -replace "kuhl", "$kuhl" }
+$kull =  -join ((97..122) | Get-Random -Count 5 | ForEach-Object {[char]$_})
+Get-ChildItem -recurse $mimipath | Where-Object { $_.name -match "mimilib" } | Rename-Item -NewName { $_.name -replace "kull", "$kull" }
+
 
 $mimipath = (get-location).path + "\mimikatz-master"
 $allfiles = Get-ChildItem $mimipath -recurse | Where-Object { $_.Attributes -notmatch 'directory' } | `
@@ -57,8 +62,9 @@ $allfiles = Get-ChildItem $mimipath -recurse | Where-Object { $_.Attributes -not
 							-replace "https://mysmartlogon.com", "Spondulicks" `
 							-replace "2007", "2023" `
 							-replace "2021", "2023" `
+							#
 							-replace "kiwi", "fruity" `
-							-replace "mimikatz", "dinocats" `
+							-replace "mimikatz", "$mimikatz" `
 							-replace "mimilib", "dinolib" `
 							-replace "mimidrv", "dinodrv" `
 							-replace "mimilove", "dinolove" `
